@@ -21,6 +21,7 @@ function concertThis(artist) {
             console.log("-------------")
         }
     }) 
+    fs.appendFile(concertThis(artist))
 }
 
 function spotifyThisSong(song) {
@@ -38,6 +39,7 @@ function spotifyThisSong(song) {
             console.log("-------------")
         }    
     })
+    fs.appendFile(spotifyThisSong(song))
 }
 
 function movieThis(movie) {
@@ -70,9 +72,12 @@ function movieThis(movie) {
             }
         })
     }
+    fs.appendFile(movieThis(movie))
 }
 
-function itSays()
+function itSays() {
+
+}
 
 switch (command) {
     case "concert-this":
