@@ -21,7 +21,7 @@ function concertThis(artist) {
             console.log("-------------")
         }
     }) 
-    fs.appendFile(concertThis(artist))
+    fs.appendFile("log.txt", concertThis(artist))
 }
 
 function spotifyThisSong(song) {
@@ -39,7 +39,7 @@ function spotifyThisSong(song) {
             console.log("-------------")
         }    
     })
-    fs.appendFile(spotifyThisSong(song))
+    fs.appendFile("log.txt", spotifyThisSong(song))
 }
 
 function movieThis(movie) {
@@ -72,12 +72,14 @@ function movieThis(movie) {
             }
         })
     }
-    fs.appendFile(movieThis(movie))
+    fs.appendFile("log.txt", movieThis(movie))
 }
 
 function itSays() {
-
-}
+    fs.readFile('log.txt', "utf8", function(error, data){
+      var txt = data.split(',');
+    });
+}  
 
 switch (command) {
     case "concert-this":
@@ -87,5 +89,5 @@ switch (command) {
     case "movie-this":
         movieThis(search)
     case "do-what-it-says":
-        itSays(search)    
+        itSays()    
 }
